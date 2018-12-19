@@ -129,8 +129,12 @@ Template.body.onRendered(function() {
 RocketChat.mainReady = new ReactiveVar(false);
 Template.main.helpers({
 	removeSidenav() {
-		const { modal } = this;
-		return (modal || typeof modal === 'function' ? modal() : modal); // || RocketChat.Layout.isEmbedded();
+		if (Meteor.userId() != null && (Meteor.user().username === 'beeup' || Meteor.user().username === 'admin')) {
+			return false;
+		}
+		return true;
+		// const { modal } = this;
+		// return (modal || typeof modal === 'function' ? modal() : modal); // || RocketChat.Layout.isEmbedded();
 	},
 	siteName() {
 		return RocketChat.settings.get('Site_Name');
