@@ -129,7 +129,7 @@ Template.body.onRendered(function() {
 RocketChat.mainReady = new ReactiveVar(false);
 Template.main.helpers({
 	removeSidenav() {
-		if (Meteor.userId() != null && (Meteor.user().username === 'beeup' || Meteor.user().username === 'admin')) {
+		if (Meteor.userId() != null && (Meteor.user().username === 'beeup' || Meteor.user().username === 'admin' || Meteor.user().username === 'wks')) {
 			return false;
 		}
 		return true;
