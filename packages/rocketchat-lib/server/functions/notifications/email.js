@@ -98,7 +98,7 @@ export function sendEmail({ message, user, subscription, room, emailAddress, has
 	});
 
 	const _ = subscription; // eslint-disable-line no-unused-vars
-	const room_path = `https://www.beeup.com/messaging/to-chat/${ room.t }/${ room._id }`;
+	const room_path = RocketChat.settings.get('Accounts_iframe_url').replace("chat/login", "") + `messaging/to-chat/${ room.t }/${ room._id }`;
 	// const room_path = `http://localhost:8000/messaging/to-chat/${ room.t }/${ room._id }`;
 
 	const email = {
